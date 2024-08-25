@@ -8,6 +8,7 @@ import (
 func TestConcurrentLimiter(t *testing.T) {
 	// Create a new ConcurrentLimiter with a maximum of 2 concurrent operations.
 	cl := NewConcurrentLimiter(2)
+	defer cl.Close()
 
 	// Run 3 operations concurrently.
 	cl.Go(func() {
